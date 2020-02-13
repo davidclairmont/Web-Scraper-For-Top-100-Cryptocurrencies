@@ -71,9 +71,12 @@ for tr_tags in soup.tbody:
         else:
             break
 
+## creates a CSV file titled 'top_100_cryptos'
 with open('top_100_cryptos.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
+    ## writes the first row which contains the names of each field
     writer.writerow(["Rank", "Ticker symbol", "Name", "Market Cap", "Price", "Volume(24h)", "Circulating Supply", "Change(24h)"])
+    ## for loop that takes the info for each crypto and puts it into one row. the row is then written to the CSV
     for i in range(0,100):
         row = [ranks[i], ticker_symbols[i], names[i], market_caps[i], prices[i], volumes[i], supplies[i], changes[i]]
         writer.writerow(row)
